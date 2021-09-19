@@ -17,7 +17,7 @@ Go to /help and choose appropriate modes</b> \n
     DOWNLOAD_START = "<b>Downloading To My server !! Wait</b>"
     UPLOAD_START = "<b>Downloading Completed Now I'm Uploading Into TG</b>"
     RCHD_TG_API_LIMIT = "Downloaded in {} seconds.\nDetected File Size: {}\nSorry Do You Think! I'll Upload It?"
-    AFTER_SUCCESSFUL_UPLOAD_MSG = "<b>I Think You Are Thankful To Me By My Help So Support Our Channel @storytimeoG</b>"
+    AFTER_SUCCESSFUL_UPLOAD_MSG = "<b>I Think You Are Thankful To Me Beacouse Of My Help 😏, So Support Our Channel @storytimeoG</b>"
     AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS = "Downloaded in {} seconds.\nUploaded in {} seconds"
     NOT_AUTH_USER_TEXT = "CONTACT @VAMPIRE_KING_NO_1 "
     NOT_AUTH_USER_TEXT_FILE_SIZE = "IF You Got This Message You Should Contact @VAMPIRE_KING_NO_1 "
