@@ -1,6 +1,8 @@
 class Translation(object):
-    START_TEXT = """ <b> Hi {} ,  I am a 𝘼𝙨𝙝 𝙆𝙚𝙩𝙘𝙝𝙪𝙢
-You can rename any type of file or media with permanent thumbnail support.
+    START_TEXT = """ <b> Hi {} ,  I am 𝘼𝙨𝙝 𝙆𝙚𝙩𝙘𝙝𝙪𝙢
+    An Telegram File Rename Bot.
+    
+    You can rename any type of file or media with permanent thumbnail support.
 
 Go to /help and choose appropriate modes</b> \n
 
