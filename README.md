@@ -7,7 +7,8 @@
 An Multi purpose Bot Which Can :-
 * ✅Rename Telegram Files 
 * ✅Convert Files into Video
-
+* ✅Permanenet Thumbnail Support
+* ✅Fast Renaming
 
 ### You can tap the Deploy To Heroku button below to deploy straight to Heroku!
 
