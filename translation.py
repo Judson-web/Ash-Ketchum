@@ -1,5 +1,5 @@
 class Translation(object):
-    START_TEXT = """ <b> Hi {} ,  I am 𝘼𝙨𝙝 𝙆𝙚𝙩𝙘𝙝𝙪𝙢
+    START_TEXT = """ <b> Hi {} ,  I am <a href="t.me/PC_RenameBot_bot">𝘼𝙨𝙝 𝙆𝙚𝙩𝙘𝙝𝙪𝙢</a>
     
     An Telegram File Rename Bot.
     
