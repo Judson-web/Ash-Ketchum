@@ -49,7 +49,7 @@ async def help_user(bot, update):
                return
         except UserNotParticipant:
             await update.reply_text(
-                text="**Please Join My Update Channel Before Using Me..**",
+                text="**Hey Bruh Join My Update Channel Before Using Me 😎..**",
                 reply_markup=InlineKeyboardMarkup([
                     [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
               ])
@@ -62,12 +62,12 @@ async def help_user(bot, update):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('📝Rename', callback_data = "rnme"),
-                    InlineKeyboardButton('📂File To Video', callback_data = "f2v")
+                    InlineKeyboardButton('📝Rҽɳαɱҽ', callback_data = "rnme"),
+                    InlineKeyboardButton('📂Fιʅҽ Tσ Vιԃҽσ', callback_data = "f2v")
                 ],
                 [
-                    InlineKeyboardButton('🎞️Custom Thumbnail', callback_data = "cthumb"),
-                    InlineKeyboardButton('💬About', callback_data = "about")
+                    InlineKeyboardButton('🎞️Cυʂƚσɱ Tԋυɱზɳαιʅ', callback_data = "cthumb"),
+                    InlineKeyboardButton('💬Aზσυƚ', callback_data = "about")
                 ]
             ]
         )
@@ -88,7 +88,7 @@ async def start_me(bot, update):
         except UserNotParticipant:
             #await update.reply_text(f"Join @{update_channel} To Use Me")
             await update.reply_text(
-                text="**Please Join My Update Channel Before Using Me..**",
+                text="**Hey Bruh Join My Update Channel Before Using Me 😎..**",
                 reply_markup=InlineKeyboardMarkup([
                     [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
               ])
@@ -124,8 +124,8 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Back', callback_data = "ghelp"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    InlineKeyboardButton('🔙 Bαƈƙ 🔙', callback_data = "ghelp"),
+                    InlineKeyboardButton("🔒 Cʅσʂҽ", callback_data = "close")
                 ]
             ]
         )
@@ -137,8 +137,8 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Back', callback_data = "ghelp"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    InlineKeyboardButton('🔙 Bαƈƙ 🔙', callback_data = "ghelp"),
+                    InlineKeyboardButton("🔒 Cʅσʂҽ", callback_data = "close")
                 ]
             ]
         )
@@ -150,8 +150,8 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Back', callback_data = "ghelp"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    InlineKeyboardButton('🔙 Bαƈƙ 🔙', callback_data = "ghelp"),
+                    InlineKeyboardButton("🔒 Cʅσʂҽ", callback_data = "close")
                 ]
             ]
         )
@@ -163,12 +163,12 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('📝Rename', callback_data = "rnme"),
-                    InlineKeyboardButton('📂File To Video', callback_data = "f2v")
+                    InlineKeyboardButton('📝Rҽɳαɱҽ', callback_data = "rnme"),
+                    InlineKeyboardButton('📂Fιʅҽ Tσ Vιԃҽσ', callback_data = "f2v")
                 ],
                 [
-                    InlineKeyboardButton('🎞️Custom Thumbnail', callback_data = "cthumb"),
-                    InlineKeyboardButton('💬About', callback_data = "about")
+                    InlineKeyboardButton('🎞️Cυʂƚσɱ Tԋυɱზɳαιʅ', callback_data = "cthumb"),
+                    InlineKeyboardButton('💬Aზσυƚ', callback_data = "about")
                 ]
             ]
         )
@@ -180,8 +180,8 @@ async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Back', callback_data = "ghelp"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    InlineKeyboardButton('🔙 Bαƈƙ 🔙', callback_data = "ghelp"),
+                    InlineKeyboardButton("🔒 Cʅσʂҽ", callback_data = "close")
                 ]
             ]
         )
