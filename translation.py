@@ -4,7 +4,7 @@ You can rename any type of file or media with permanent thumbnail support.
 
 Go to /help and choose appropriate modes</b> \n
 
-<b>Mᴀɪɴᴛᴀɪɴᴇᴅ Bʏ <a href="t.me/VAMPIRE_KING_NO_1"> Tʜɪs Pᴇʀsᴏɴ </a> </b> \n 
+<b>Mᴀɪɴᴛᴀɪɴᴇᴅ Bʏ <a href="t.me/VAMPIRE_KING_NO_1">Tʜɪs Pᴇʀsᴏɴ</a> </b> \n 
 """
 
     RENAME_403_ERR = "What Are You Doing? Bruuh!!"
