@@ -12,7 +12,7 @@ An Multi purpose Bot Which Can :-
 ### You can tap the Deploy To Heroku button below to deploy straight to Heroku!
 
 ### Heroku (Don't Complain)
-<p><a href="https://heroku.com/deploy?template=https://github.com/AsmSafone/VideoPlayerBot"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
+<p><a href="https://heroku.com/deploy?template=https://github.com/Judson-web/Ash-Ketchum/edit/ashketchum"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
   
   
 ###rEAD tHIS 😇
