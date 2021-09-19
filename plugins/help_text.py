@@ -99,15 +99,14 @@ async def start_me(bot, update):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                        InlineKeyboardButton("Help", callback_data = "ghelp")
+                        InlineKeyboardButton("Hҽʅρ 🥲", callback_data = "ghelp")
                 ],
                 [
-                    InlineKeyboardButton('Support Channel', url='https://t.me/Mai_bOTs'),
-                    InlineKeyboardButton('Feedback', url='https://t.me/No_OnE_Kn0wS_Me')
+                    InlineKeyboardButton('Sυρρσɾƚ Cԋαɳɳҽʅ 😇', url='https://t.me/primerroomown'),
+                    InlineKeyboardButton('Fҽҽԃზαƈƙ 💕', url='https://t.me/VAMPIRE_KING_NO_1')
                 ],
                 [
-                    InlineKeyboardButton('Other Bots', url='https://t.me/Mai_bOTs/17'),
-                    InlineKeyboardButton('Source', url='https://github.com/No-OnE-Kn0wS-Me/FileRenameBot')
+                    InlineKeyboardButton('Sσυɾƈҽ Cσԃҽ 😏', url='https://t.me/NOKIERUNNOIPPKITTUM')
                 ]
             ]
         ),
