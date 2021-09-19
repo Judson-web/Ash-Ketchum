@@ -11,7 +11,11 @@ An Multi purpose Bot Which Can :-
 
 ### You can tap the Deploy To Heroku button below to deploy straight to Heroku!
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://telegram.dog/PC_RenameBot_bot)
-
+### Heroku (Don't Complain)
+<p><a href="https://heroku.com/deploy?template=https://github.com/AsmSafone/VideoPlayerBot"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
+  
+  
+###rEAD tHIS 😇
+  
 If you Find Any Bugs Or Want to Give Your Feedbacks Then Kindly Contact Me Through [Telegram ](https://telegram.dog/VAMPIRE_KING_NO_1) 
 Also Support Our Channel [SupporT_gRouP](https://telegram.dog/PRIMER_ROOM) 
