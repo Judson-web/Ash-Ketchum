@@ -1,5 +1,5 @@
 {
-  "name": "TG Rename Bot",
+  "name": "𝘼𝙨𝙝 𝙆𝙚𝙩𝙘𝙝𝙪𝙢",
   "description": "Telegram's best Open Source Rename Bot.",
   "logo": "https://telegra.ph/file/dc50604bc29b93d90336d.jpg",
   "keywords": [
@@ -26,11 +26,11 @@
       "value": ""
     },
     "APP_ID": {
-      "description": "Get this value from https://my.telegram.org",
+      "description": "Get this value from my.telegram.org",
       "value": ""
     },
     "API_HASH": {
-      "description": "Get this value from https://my.telegram.org",
+      "description": "Get this value from my.telegram.org",
       "value": ""
     },
     "BANNED_USERS": {
