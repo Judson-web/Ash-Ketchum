@@ -102,7 +102,7 @@ async def start_me(bot, update):
                         InlineKeyboardButton("Hҽʅρ 🥲", callback_data = "ghelp")
                 ],
                 [
-                    InlineKeyboardButton('Sυρρσɾƚ Cԋαɳɳҽʅ 😇', url='https://t.me/primerroomown'),
+                    InlineKeyboardButton('Sυρρσɾƚ Cԋαɳɳҽʅ 😇', url='https://t.me/storytimeoG'),
                     InlineKeyboardButton('Fҽҽԃზαƈƙ 💕', url='https://t.me/VAMPIRE_KING_NO_1')
                 ],
                 [
