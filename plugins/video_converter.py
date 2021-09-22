@@ -48,9 +48,9 @@ async def convert_to_video(bot, update):
         except UserNotParticipant:
             #await update.reply_text(f"Join @{update_channel} To Use Me")
             await update.reply_text(
-                text="**Please Join My Update Channel Before Using Me 😉..**",
+                text="**Join My Update Channel Before Using Me 😉..**",
                 reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
+                    [ InlineKeyboardButton(text="Join My Updates Channel Or I Will Sad 😔", url=f"https://t.me/{update_channel}")]
               ])
             )
             return  
