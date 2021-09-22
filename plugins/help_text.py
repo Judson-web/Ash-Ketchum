@@ -49,9 +49,9 @@ async def help_user(bot, update):
                return
         except UserNotParticipant:
             await update.reply_text(
-                text="**Hey Bruh Join My Update Channel Before Using Me 😎..**",
+                text="**Iғ Yᴏᴜ Wᴀɴᴛ Tᴏ Usᴇ Tʜɪs Bᴏᴛ, Yᴏᴜ Mᴜsᴛ Jᴏɪɴ Tʜᴇ Cʜᴀɴɴᴇʟ.                                                                                                                                                          Because I Am Providing You Completely Free To Use The Bot 😎..**",
                 reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
+                    [ InlineKeyboardButton(text="Join Now", url=f"https://t.me/{update_channel}")]
               ])
             )
             return
@@ -88,9 +88,9 @@ async def start_me(bot, update):
         except UserNotParticipant:
             #await update.reply_text(f"Join @{update_channel} To Use Me")
             await update.reply_text(
-                text="**Hey Bruh Join My Update Channel Before Using Me 😎..**",
+                text="**Iғ Yᴏᴜ Wᴀɴᴛ Tᴏ Usᴇ Tʜɪs Bᴏᴛ, Yᴏᴜ Mᴜsᴛ Jᴏɪɴ Tʜᴇ Cʜᴀɴɴᴇʟ.                                                                                                                                                     Because I Am Providing You Completely Free To Use The Bot 😎..**",
                 reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
+                    [ InlineKeyboardButton(text="Join Now", url=f"https://t.me/{update_channel}")]
               ])
             )
             return
