@@ -1,22 +1,65 @@
-<a href="https://en.wikipedia.org/wiki/Ash_Ketchum">
-  <img src="https://telegra.ph/file/013ef6edf8752a64b9ee9.jpg" alt="view">    
-   
+## Ash-Ketchum Telegram Bot (Refreshed)
 
-#### Ash Ketchum
+A modernized Pyrogram Telegram bot for:
+- ✅ Renaming Telegram files
+- ✅ Converting files to streamable video (`/c2v`)
+- ✅ Persistent custom thumbnail storage using **Firebase Firestore**
+- ✅ Utility commands: `/ping`, `/stats`
 
-An Multi purpose Bot Which Can :-
-* ✅Rename Telegram Files 
-* ✅Convert Files into Video
-* ✅Permanenet Thumbnail Support
-* ✅Fast Renaming
+---
 
-### You can tap the Deploy To Heroku button below to deploy straight to Heroku!
+## What's new in this update
 
-### [Heroku (Don't Complain)]
-<p><a href="https://heroku.com/deploy?template=https://github.com/Judson-web/Ash-Ketchum/edit/ashketchum"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
-  
-  
-### rEAD tHIS 😇
-  
-If you Find Any Bugs Or Want to Give Your Feedbacks Then Kindly Contact Me Through [Telegram ](https://telegram.dog/VAMPIRE_KING_NO_1) 
-Also Support Our Channel [SupporT_gRouP](https://telegram.dog/PRIMER_ROOM) 
+- Migrated thumbnail persistence from SQLAlchemy/Postgres to **Firebase Firestore**.
+- Improved filename safety with sanitization in `/rename`.
+- Improved thumbnail processing and cleanup behavior.
+- Added `/ping` (latency) and `/stats` (uptime/temp file count).
+- Updated deployment metadata and removed old Heroku Postgres dependency.
+
+---
+
+## Environment Variables
+
+Required:
+- `TG_BOT_TOKEN`
+- `APP_ID`
+- `API_HASH`
+
+Optional:
+- `UPDATE_CHANNEL`
+- `AUTH_USERS` (space-separated IDs)
+- `BANNED_USERS` (space-separated IDs)
+- `OWNER_ID`
+- `SUPPORT_LINK`
+- `UPDATES_LINK`
+- `DOWNLOAD_LOCATION`
+
+Firebase (for persistent thumbnails):
+- `FIREBASE_PROJECT_ID`
+- `FIREBASE_CREDENTIALS_PATH` **or** `FIREBASE_CREDENTIALS_JSON`
+
+If Firebase credentials are not set, bot falls back to in-memory thumbnail mapping.
+
+---
+
+## Run locally
+
+```bash
+pip install -r requirements.txt
+python3 bot.py
+```
+
+---
+
+## Deploy
+
+### Heroku (updated)
+- Worker dyno uses `python3 bot.py`
+- No Postgres addon required anymore
+- Set Firebase credentials through config vars
+
+### Docker
+```bash
+docker build -t ash-ketchum .
+docker run --env-file .env ash-ketchum
+```

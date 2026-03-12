@@ -1,194 +1,92 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# (c) Shrimadhav U K & @No_OnE_Kn0wS_Me
-
-# the logging things
 import logging
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
+import os
+import time
 
 import pyrogram
-import os
-import sqlite3
-from pyrogram import filters
 from pyrogram import Client as Mai_bOTs
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery, Message
-from pyrogram.errors import UserNotParticipant, UserBannedInChannel 
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
-
-# the secret configuration specific things
-if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
-else:
-    from config import Config
-
-# the Strings used for this "thing"
+from sample_config import Config
 from translation import Translation
+from helper_funcs.bot_helpers import enforce_subscription, user_is_banned
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+logger = logging.getLogger(__name__)
+
+BOT_START_TIME = time.time()
 
 
+def main_keyboard():
+    return InlineKeyboardMarkup(
+        [
+            [InlineKeyboardButton("Rename", callback_data="rnme"), InlineKeyboardButton("File -> Video", callback_data="f2v")],
+            [InlineKeyboardButton("Thumbnail", callback_data="cthumb"), InlineKeyboardButton("About", callback_data="about")],
+        ]
+    )
 
 
-#from helper_funcs.chat_base import TRChatBase
+@Mai_bOTs.on_message(pyrogram.filters.command(["start"]))
+async def start_me(bot, update):
+    if user_is_banned(update.from_user.id):
+        await update.reply_text("You are banned from using this bot.")
+        return
+    if not await enforce_subscription(bot, update):
+        return
 
-def GetExpiryDate(chat_id):
-    expires_at = (str(chat_id), "Source Cloned User", "1970.01.01.12.00.00")
-    Config.AUTH_USERS.add(861055237)
-    return expires_at
+    await update.reply_text(
+        Translation.START_TEXT.format(update.from_user.first_name),
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [InlineKeyboardButton("Help", callback_data="ghelp")],
+                [InlineKeyboardButton("Updates", url=Config.UPDATES_LINK), InlineKeyboardButton("Support", url=Config.SUPPORT_LINK)],
+            ]
+        ),
+        reply_to_message_id=update.message_id,
+    )
 
 
 @Mai_bOTs.on_message(pyrogram.filters.command(["help"]))
 async def help_user(bot, update):
-    update_channel = Config.UPDATE_CHANNEL
-    if update_channel:
-        try:
-            user = await bot.get_chat_member(update_channel, update.chat.id)
-            if user.status == "kicked":
-               await update.reply_text(" Sorry, You are **B A N N E D**")
-               return
-        except UserNotParticipant:
-            await update.reply_text(
-                text="**Iғ Yᴏᴜ Wᴀɴᴛ Tᴏ Usᴇ Tʜɪs Bᴏᴛ, Yᴏᴜ Mᴜsᴛ Jᴏɪɴ Tʜᴇ Cʜᴀɴɴᴇʟ.                                                                                                                                                          Because I Am Providing You Completely Free To Use The Bot 😎..**",
-                reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="Join Now", url=f"https://t.me/{update_channel}")]
-              ])
-            )
-            return
-        else:
-            await bot.send_message(
-        chat_id=update.chat.id,
-        text=Translation.HELP_USER,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton('📝Rҽɳαɱҽ', callback_data = "rnme"),
-                    InlineKeyboardButton('📂Fιʅҽ Tσ Vιԃҽσ', callback_data = "f2v")
-                ],
-                [
-                    InlineKeyboardButton('🎞️Cυʂƚσɱ Tԋυɱზɳαιʅ', callback_data = "cthumb"),
-                    InlineKeyboardButton('💬Aზσυƚ', callback_data = "about")
-                ]
-            ]
-        )
-    )       
-
-@Mai_bOTs.on_message(pyrogram.filters.command(["start"]))
-async def start_me(bot, update):
-    if update.from_user.id in Config.BANNED_USERS:
-        await update.reply_text("You are Banned")
+    if not await enforce_subscription(bot, update):
         return
-    update_channel = Config.UPDATE_CHANNEL
-    if update_channel:
-        try:
-            user = await bot.get_chat_member(update_channel, update.chat.id)
-            if user.status == "kicked":
-               await update.reply_text(" Sorry, You are **B A N N E D**")
-               return
-        except UserNotParticipant:
-            #await update.reply_text(f"Join @{update_channel} To Use Me")
-            await update.reply_text(
-                text="**Iғ Yᴏᴜ Wᴀɴᴛ Tᴏ Usᴇ Tʜɪs Bᴏᴛ, Yᴏᴜ Mᴜsᴛ Jᴏɪɴ Tʜᴇ Cʜᴀɴɴᴇʟ.                                                                                                                                                     Because I Am Providing You Completely Free To Use The Bot 😎..**",
-                reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="Join Now", url=f"https://t.me/{update_channel}")]
-              ])
-            )
-            return
-        else:
-            await update.reply_text(Translation.START_TEXT.format(update.from_user.first_name),
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                        InlineKeyboardButton("Hҽʅρ 🥲", callback_data = "ghelp")
-                ],
-                [
-                    InlineKeyboardButton('Sυρρσɾƚ Cԋαɳɳҽʅ 😇', url='https://t.me/storytimeoG'),
-                    InlineKeyboardButton('Fҽҽԃზαƈƙ 💕', url='https://t.me/VAMPIRE_KING_NO_1')
-                ],
-                [
-                    InlineKeyboardButton('Sσυɾƈҽ Cσԃҽ 😏', url='https://t.me/NOKIERUNNOIPPKITTUM')
-                ]
-            ]
-        ),
-        reply_to_message_id=update.message_id
-    )
-            return 
+    await update.reply_text(Translation.HELP_USER, reply_markup=main_keyboard())
+
+
+@Mai_bOTs.on_message(pyrogram.filters.command(["ping"]))
+async def ping(bot, update):
+    start = time.time()
+    msg = await update.reply_text("Pinging...")
+    latency = (time.time() - start) * 1000
+    await msg.edit_text(f"🏓 Pong: <code>{latency:.2f} ms</code>")
+
+
+@Mai_bOTs.on_message(pyrogram.filters.command(["stats"]))
+async def stats(bot, update):
+    uptime = int(time.time() - BOT_START_TIME)
+    files = 0
+    for _, _, filenames in os.walk(Config.DOWNLOAD_LOCATION):
+        files += len(filenames)
+    await update.reply_text(f"Uptime: <code>{uptime}s</code>\nTemp files: <code>{files}</code>")
+
 
 @Mai_bOTs.on_callback_query()
-async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
+async def cb_handler(client: Mai_bOTs, query: CallbackQuery):
     data = query.data
-    if data == "rnme":
-        await query.message.edit_text(
-            text=Translation.RENAME_HELP,
-            disable_web_page_preview = True,
-            reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton('🔙 Bαƈƙ 🔙', callback_data = "ghelp"),
-                    InlineKeyboardButton("🔒 Cʅσʂҽ", callback_data = "close")
-                ]
-            ]
-        )
-     )
-    elif data == "f2v":
-        await query.message.edit_text(
-            text=Translation.C2V_HELP,
-            disable_web_page_preview = True,
-            reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton('🔙 Bαƈƙ 🔙', callback_data = "ghelp"),
-                    InlineKeyboardButton("🔒 Cʅσʂҽ", callback_data = "close")
-                ]
-            ]
-        )
-     )
-    elif data == "cthumb":
-        await query.message.edit_text(
-            text=Translation.THUMBNAIL_HELP,
-            disable_web_page_preview = True,
-            reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton('🔙 Bαƈƙ 🔙', callback_data = "ghelp"),
-                    InlineKeyboardButton("🔒 Cʅσʂҽ", callback_data = "close")
-                ]
-            ]
-        )
-     )
-    elif data == "ghelp":
-        await query.message.edit_text(
-            text=Translation.HELP_USER,
-            disable_web_page_preview = True,
-            reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton('📝Rҽɳαɱҽ', callback_data = "rnme"),
-                    InlineKeyboardButton('📂Fιʅҽ Tσ Vιԃҽσ', callback_data = "f2v")
-                ],
-                [
-                    InlineKeyboardButton('🎞️Cυʂƚσɱ Tԋυɱზɳαιʅ', callback_data = "cthumb"),
-                    InlineKeyboardButton('💬Aზσυƚ', callback_data = "about")
-                ]
-            ]
-        )
-     )
-    elif data == "about":
-        await query.message.edit_text(
-            text=Translation.ABOUT_ME,
-            disable_web_page_preview = True,
-            reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton('🔙 Bαƈƙ 🔙', callback_data = "ghelp"),
-                    InlineKeyboardButton("🔒 Cʅσʂҽ", callback_data = "close")
-                ]
-            ]
-        )
-     )
-    elif data == "close":
+    mapping = {
+        "rnme": Translation.RENAME_HELP,
+        "f2v": Translation.C2V_HELP,
+        "cthumb": Translation.THUMBNAIL_HELP,
+        "ghelp": Translation.HELP_USER,
+        "about": Translation.ABOUT_ME,
+    }
+    if data == "close":
         await query.message.delete()
-        try:
-            await query.message.reply_to_message.delete()
-        except:
-            pass
+        return
+    if data in mapping:
+        await query.message.edit_text(
+            text=mapping[data],
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("Back", callback_data="ghelp"), InlineKeyboardButton("Close", callback_data="close")]]
+            ),
+        )
