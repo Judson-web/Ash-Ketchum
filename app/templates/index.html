@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ app_name }} — AI Workspace</title>
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div id="app" class="layout">
+      <aside class="sidebar glass">
+        <div class="brand">
+          <img src="/static/icon.svg" class="logo" alt="Nexus logo" />
+          <div>
+            <h1>Nexus</h1>
+            <p>Gemini Copilot</p>
+          </div>
+        </div>
+        <button id="newChat" class="btn primary">+ New Chat</button>
+        <input id="searchChats" placeholder="Search chats..." />
+        <div id="sessionList" class="session-list"></div>
+        <hr />
+        <label>Theme</label>
+        <select id="themeSelect">
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+          <option value="nexus">Nexus Neon</option>
+        </select>
+        <label>Model</label>
+        <select id="modelSelect">
+          <option>gemini-2.5-flash</option>
+          <option>gemini-2.5-pro</option>
+        </select>
+      </aside>
+
+      <main class="chat-panel">
+        <header class="topbar glass">
+          <div>Nexus Workspace</div>
+          <div class="actions">
+            <button id="exportBtn" class="btn">Export</button>
+            <button id="clearBtn" class="btn">Clear</button>
+          </div>
+        </header>
+        <section id="messages" class="messages"></section>
+        <footer class="composer glass">
+          <textarea id="prompt" rows="3" placeholder="Ask anything…"></textarea>
+          <div class="composer-row">
+            <input id="userId" placeholder="User ID (for Firebase history)" />
+            <input id="temperature" type="number" step="0.1" min="0" max="2" value="0.7" title="Temperature" />
+            <button id="sendBtn" class="btn primary">Send</button>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="/static/app.js"></script>
+  </body>
+</html>
