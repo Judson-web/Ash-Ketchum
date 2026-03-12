@@ -1,31 +1,32 @@
 import logging
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
 import os
-
-if bool(os.environ.get("WEBHOOK", False)):
-    from sample_config import Config
-else:
-    from config import Config
 
 import pyrogram
 
+from sample_config import Config
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
+logger = logging.getLogger(__name__)
 
 
-if __name__ == "__main__" :
-    if not os.path.isdir(Config.DOWNLOAD_LOCATION):
-        os.makedirs(Config.DOWNLOAD_LOCATION)
-    plugins = dict(
-        root="plugins"
-    )
+if __name__ == "__main__":
+    os.makedirs(Config.DOWNLOAD_LOCATION, exist_ok=True)
+
+    plugins = {"root": "plugins"}
     app = pyrogram.Client(
-        "RenameBot",
+        "AshKetchumBot",
         bot_token=Config.TG_BOT_TOKEN,
         api_id=Config.APP_ID,
         api_hash=Config.API_HASH,
-        plugins=plugins
+        plugins=plugins,
     )
-    Config.AUTH_USERS.add(1773423753)
+
+    if Config.OWNER_ID:
+        Config.AUTH_USERS.add(Config.OWNER_ID)
+
+    logger.info("Starting bot with %s plugins", plugins["root"])
     app.run()
